@@ -1,4 +1,4 @@
-const downloadButton = document.getElementById('downloadButton');
+const downloadButton = document.getElementById('download-button');
 const personContainer = document.getElementById('person-container');
 const message = document.getElementById('message');
 
@@ -15,26 +15,26 @@ downloadButton.addEventListener('click', () => {
       picture.alt = `${user.name.first} ${user.name.last}`;
 
       const email = document.createElement('p');
-      email.textContent = `Email: ${user.email}`;
+      email.innerHTML = `<strong>Email</strong>: ${user.email}`;
 
       const name = document.createElement('p');
-      name.textContent = `Name: ${user.name.first} ${user.name.last}`;
+      name.innerHTML = `<strong>Name</strong>: ${user.name.first} ${user.name.last}`;
 
       const phone = document.createElement('p');
-      phone.textContent = `Phone: ${user.phone}`;
+      phone.innerHTML = `<strong>Phone</strong>: ${user.phone}`;
 
       const city = document.createElement('p');
-      city.textContent = `City: ${user.location.city}`;
+      city.innerHTML = `<strong>City</strong>: ${user.location.city}`;
 
       personCard.append(picture, email, name, phone, city);
       personContainer.appendChild(personCard);
 
-      message.textContent = 'Success!';
-      message.style.color = 'green';
+      message.textContent = 'success!';
+      message.style.color = '#242d38';
     })
     .catch(() => {
-      message.textContent = 'Error!';
+      message.textContent = 'error!';
       message.style.color = 'red';
     })
-    .finally(() => setTimeout(() => (message.textContent = ''), 3000));
+    .finally(() => setTimeout(() => (message.textContent = ''), 2000));
 });
